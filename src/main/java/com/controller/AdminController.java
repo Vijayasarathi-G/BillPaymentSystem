@@ -15,7 +15,7 @@ public class AdminController {
 	AdminService as; 
 	
 	@RequestMapping("/login")
-	public ModelAndView login(AdminModel admin ) {
+	public ModelAndView login(AdminModel admin) {
 		ModelAndView mav= null;
 		if(as.checkAdminLogin(admin)) {
 			mav=new ModelAndView();

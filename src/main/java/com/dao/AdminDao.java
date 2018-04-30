@@ -23,8 +23,7 @@ public class AdminDao {
 		List<?>li=qry.list();
 		if(li.size()>0) {
 			return true;
-		}
-		else {
+		} else {
 		return false;
 	}
 
