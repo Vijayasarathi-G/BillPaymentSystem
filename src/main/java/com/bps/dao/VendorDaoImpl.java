@@ -48,7 +48,7 @@ public class VendorDaoImpl implements VendorDao{
 		Vendor vendor = (Vendor) session.get(Vendor.class, vendorDetails.getVendor_id());
 		Transaction transaction = session.getTransaction();
 		if (vendor != null) {
-			System.out.println("here"+vendor);
+		
 			vendor.setVendor_type(vendorDetails.getVendor_type());
 			vendor.setCompany_reg_no(vendorDetails.getCompany_reg_no());
 			vendor.setAddress(vendorDetails.getAddress());
