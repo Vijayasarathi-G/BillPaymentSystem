@@ -1,12 +1,12 @@
-package com.controller;
+package com.bps.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.model.AdminModel;
-import com.service.AdminService;
+import com.bps.model.Admin;
+import com.bps.service.AdminService;
 
 @Controller
 public class AdminController {
@@ -15,7 +15,7 @@ public class AdminController {
 	AdminService as; 
 	
 	@RequestMapping("/login")
-	public ModelAndView login(AdminModel admin) {
+	public ModelAndView login(Admin admin) {
 		ModelAndView mav= null;
 		if(as.checkAdminLogin(admin)) {
 			mav=new ModelAndView();

@@ -1,4 +1,4 @@
-package com.dao;
+package com.bps.dao;
 
 import java.util.List;
 
@@ -8,14 +8,14 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.model.AdminModel;
+import com.bps.model.Admin;
 
 @Repository
-public class AdminDao {
+public class AdminDaoImpl implements AdminDao{
 	@Autowired
 	SessionFactory sf;
 
-	public boolean checkAdminLogin(AdminModel admin) {
+	public boolean checkAdminLogin(Admin admin) {
 		Session s=sf.openSession();
 		Query qry= s.createQuery("select e from Login e where e.username like ? and e.password like ?");
 		qry.setParameter(0, admin.getUsername());

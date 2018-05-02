@@ -1,4 +1,4 @@
-package com.model;
+package com.bps.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -6,7 +6,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="admin_tb")
-public class AdminModel {
+public class Admin {
 	
 	@Id
 	private int id;
