@@ -2,19 +2,16 @@ package com.bps.dao;
 
 
 import java.util.List;
-import java.util.Optional;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
 import com.bps.model.Vendor;
 import com.bps.model.VendorDto;
-import com.bps.repository.VendorRepository;
 
 @Repository
 public class VendorDaoImpl implements VendorDao{

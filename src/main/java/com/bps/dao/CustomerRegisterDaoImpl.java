@@ -2,19 +2,15 @@ package com.bps.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import com.bps.model.CustomerRegister;
-import com.bps.repository.CustomerRepository;
-import com.bps.repository.VendorRepository;
+
 
 @Repository
 public class CustomerRegisterDaoImpl implements CustomerDao {
-   
-//	@Autowired
-//    CustomerRepository customerRepository;
-//	
+
 	@Autowired
 	SessionFactory sf;
 	
@@ -26,4 +22,37 @@ public class CustomerRegisterDaoImpl implements CustomerDao {
 		return customer_register;
 	}
 
+	public boolean CustomerDataInsert(CustomerRegister s) {
+		boolean status=true;
+		Session session=sf.openSession();
+		try {
+		session.save(s);
+		}
+		catch(Exception e) {
+			System.out.println("Exception to insert "+e);
+			status=false;
+		}
+		
+		Transaction t=session.beginTransaction();
+		t.commit();
+		return status;
+		
+	}
+	
+	public boolean customerDataUpdate(CustomerRegister s) {
+		boolean status=true;
+		Session session=sf.openSession();
+		try {
+		session.update(s);
+		}
+		catch(Exception e) {
+			System.out.println("Exception to insert "+e);
+			status=false;
+		}
+		
+		Transaction t=session.beginTransaction();
+		t.commit();
+		return status;
+		
+	}
 }

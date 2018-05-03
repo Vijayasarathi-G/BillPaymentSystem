@@ -7,4 +7,8 @@ public interface CustomerDao {
 	
 	CustomerRegister saveupdate(CustomerRegister customer_register,Long id);
 
+	boolean customerDataUpdate(CustomerRegister s);
+
+	boolean CustomerDataInsert(CustomerRegister s);
+
 }
