@@ -10,51 +10,42 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bps.model.CustomerRegister;
+import com.bps.model.Customer;
 import com.bps.service.CustomerService;
-
 
 @RestController
 @RequestMapping("/customer")
-public class CustomerController 
-{
-	
+public class CustomerController {
+
 	@Autowired
 	CustomerService customerService;
-	
-	@RequestMapping(value="/Update",method=RequestMethod.GET)
-	public String update() {
-		CustomerRegister cs=new CustomerRegister();
-		boolean status=customerService.customerDataUpdate(cs);
-		if(status) {
+
+	@RequestMapping(value = "/updateCustomer", method = RequestMethod.PUT)
+	public String update(@Valid @RequestBody Customer customerRegister) {
+		boolean status = customerService.customerDataUpdate(customerRegister);
+		if (status) {
 			return "Update Successfully";
-		}else {
+		} else {
 			return "Update not Successfully";
 		}
-		
+
 	}
-	
+
 	@RequestMapping("/registercustomer")
-	public String registerData(){
-		
-		CustomerRegister s=new CustomerRegister();
-		boolean status=customerService.customerDataInsert(s);
-				if(status) {
-					return "Register Successfully";
-				}
-				else {
-				return "Register Failed";
-				}
+	public String registerData(@Valid @RequestBody Customer customerRegister) {
+
+		boolean status = customerService.customerDataInsert(customerRegister);
+		if (status) {
+			return "Register Successfully";
+		} else {
+			return "Register Failed";
+		}
 	}
 
-	
-	@PutMapping("/customer_update/{id}/")
-	public CustomerRegister saveUpdate(@Valid @RequestBody CustomerRegister customer_register,@PathVariable ("id") Long id) 
-	{
-	return customerService.saveupdate(customer_register,id);
-//		return null;
+	@PutMapping("/customer_update")
+	public Customer saveUpdate(@Valid @RequestBody Customer customerRegister) {
+		return customerService.saveupdate(customerRegister);
+		// return null;
 	}
-	
+
 }
-
-

@@ -5,24 +5,24 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import com.bps.model.CustomerRegister;
+import com.bps.model.Customer;
 
 
 @Repository
-public class CustomerRegisterDaoImpl implements CustomerDao {
+public class CustomerDaoImpl implements CustomerDao {
 
 	@Autowired
 	SessionFactory sf;
 	
 	@Override
-	public CustomerRegister saveupdate(CustomerRegister customer_register, Long id) {
+	public Customer saveupdate(Customer customer_register) {
 		Session session = sf.openSession();
 		session.update(customer_register);
 		
 		return customer_register;
 	}
 
-	public boolean CustomerDataInsert(CustomerRegister s) {
+	public boolean CustomerDataInsert(Customer s) {
 		boolean status=true;
 		Session session=sf.openSession();
 		try {
@@ -39,17 +39,16 @@ public class CustomerRegisterDaoImpl implements CustomerDao {
 		
 	}
 	
-	public boolean customerDataUpdate(CustomerRegister s) {
+	public boolean customerDataUpdate(Customer customerRegister) {
 		boolean status=true;
 		Session session=sf.openSession();
 		try {
-		session.update(s);
+		session.update(customerRegister);
 		}
 		catch(Exception e) {
 			System.out.println("Exception to insert "+e);
 			status=false;
-		}
-		
+		}		
 		Transaction t=session.beginTransaction();
 		t.commit();
 		return status;

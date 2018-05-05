@@ -2,8 +2,8 @@ package com.bps.service;
 
 import java.util.List;
 
+import com.bps.model.CompanyRegistration;
 import com.bps.model.Vendor;
-import com.bps.model.VendorDto;
 
 public interface VendorService {
 
@@ -11,7 +11,15 @@ public interface VendorService {
 	
 	List<Vendor> getVendorService(int id);
 
-	String updateVendorService(VendorDto vendorDetails);
+	String updateVendorService(Vendor vendorDetails);
+
+	public List<Vendor> countryList();
+
+	public List<Vendor> stateList(String country);
+
+	public List<CompanyRegistration> companyRegistrationNo();
+
+	public List<CompanyRegistration> getVendorType(int registrationNo);
 	
 }
 

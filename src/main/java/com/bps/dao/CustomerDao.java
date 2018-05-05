@@ -1,14 +1,14 @@
 package com.bps.dao;
 
-import com.bps.model.CustomerRegister;
+import com.bps.model.Customer;
 
 public interface CustomerDao {
 	
 	
-	CustomerRegister saveupdate(CustomerRegister customer_register,Long id);
+	Customer saveupdate(Customer customer_register);
 
-	boolean customerDataUpdate(CustomerRegister s);
+	boolean customerDataUpdate(Customer s);
 
-	boolean CustomerDataInsert(CustomerRegister s);
+	boolean CustomerDataInsert(Customer s);
 
 }

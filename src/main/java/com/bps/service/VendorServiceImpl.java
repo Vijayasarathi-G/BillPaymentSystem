@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bps.dao.VendorDao;
+import com.bps.model.CompanyRegistration;
 import com.bps.model.Vendor;
-import com.bps.model.VendorDto;
 
 @Service
 public class VendorServiceImpl implements VendorService{
@@ -16,19 +16,43 @@ public class VendorServiceImpl implements VendorService{
 	
 	@Override
 	public List<Vendor> getVendorService(int id) {
-		List<Vendor> vendorList = vendorDao.getVendorDao(id);
-		return vendorList;
+		
+		return vendorDao.getVendorDao(id);
 	}
+	
 	@Override
-	public String updateVendorService(VendorDto vendorDetails) {
-		 String  vendorRecord= vendorDao.updateVendorDao(vendorDetails);		 
-		 return vendorRecord;
+	public String updateVendorService(Vendor vendorDetails) {
+		 return vendorDao.updateVendorDao(vendorDetails);
 	}
 
 	@Override
 	public Vendor saveVendor(Vendor emp) {
 		// TODO Auto-generated method stub
 		return vendorDao.saveVendor(emp);
+	}
+
+	@Override
+	public List<Vendor> countryList() {
+		// TODO Auto-generated method stub
+		return vendorDao.countryList();
+	}
+
+	@Override
+	public List<Vendor> stateList(String country) {
+		// TODO Auto-generated method stub
+		return vendorDao.stateList(country);
+	}
+
+	@Override
+	public List<CompanyRegistration> companyRegistrationNo() {
+		// TODO Auto-generated method stub
+		return vendorDao.companyRegistrationNo();
+	}
+
+	@Override
+	public List<CompanyRegistration> getVendorType(int registrationNo) {
+		// TODO Auto-generated method stub
+		return vendorDao.getVendorType(registrationNo);
 	}
 	
 }

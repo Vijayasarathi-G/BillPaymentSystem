@@ -1,5 +1,6 @@
 package com.bps.model;
 
+import java.math.BigInteger;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 
 @Entity
-@Table(name="vendor_details")
+@Table(name="vendor_register")
 public class Vendor {
 	
 	@Id	
@@ -24,7 +25,7 @@ public class Vendor {
 	private String country;
 	private String state;
 	private String email_address;
-	private int contact_number;
+	private BigInteger contact_number;
 	private String website;
 	private Date certificate_issued_date;
 	private Date certificate_validity_date;
@@ -74,12 +75,7 @@ public class Vendor {
 	public void setEmail_address(String email_address) {
 		this.email_address = email_address;
 	}
-	public int getContact_number() {
-		return contact_number;
-	}
-	public void setContact_number(int contact_number) {
-		this.contact_number = contact_number;
-	}
+
 	public String getWebsite() {
 		return website;
 	}
@@ -115,6 +111,12 @@ public class Vendor {
 	}
 	public void setYear_of_establishment(int year_of_establishment) {
 		this.year_of_establishment = year_of_establishment;
+	}
+	public BigInteger getContact_number() {
+		return contact_number;
+	}
+	public void setContact_number(BigInteger contact_number) {
+		this.contact_number = contact_number;
 	}
 	
 	

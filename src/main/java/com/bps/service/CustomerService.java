@@ -1,14 +1,13 @@
 package com.bps.service;
 
-import com.bps.model.CustomerRegister;
+import com.bps.model.Customer;
 
 public interface CustomerService {
-	
-	
-	public CustomerRegister saveupdate(CustomerRegister customerRegister,Long id);
+		
+	public Customer saveupdate(Customer customerRegister);
 
-	public boolean customerDataInsert(CustomerRegister s);
+	public boolean customerDataInsert(Customer s);
 
-	public boolean customerDataUpdate(CustomerRegister cs);
+	public boolean customerDataUpdate(Customer cs);
 
 }
